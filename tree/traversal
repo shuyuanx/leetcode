@@ -35,6 +35,31 @@
 // add nodes all the way to the left bottom corner (along the left child), and add val to the result set at the same time. 
 // Whenever it reaches a node without left child, go to its right braches.
 
+vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        stack<TreeNode*> s;
+        
+        TreeNode* curr = root;
+        while(curr || s.size()) {
+            while(curr) {
+                s.push(curr);
+                res.push_back(curr->val);
+
+                curr = curr->left;
+            }
+            
+            curr = s.top();
+
+            s.pop();
+            curr = curr->right;
+            
+            
+        }
+        
+        
+        return res;
+    }
+
 
 
 
