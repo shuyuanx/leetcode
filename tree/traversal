@@ -7,6 +7,34 @@
 
 //Preorder
 
+/* Using Recursion*/
+
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        
+        preorderHelper(root, res);
+        
+        return res;
+    }
+    
+    void preorderHelper(TreeNode* root, vector<int> &res) {
+        if (!root) return;
+        
+        res.push_back(root->val);
+        if (root->left)
+            preorderHelper(root->left, res);
+        if (root->right)
+            preorderHelper(root->right, res);
+        
+        return;
+    }
+    
+    
+    
+/* Using a stack*/
+// add nodes all the way to the left bottom corner (along the left child), and add val to the result set at the same time. 
+// Whenever it reaches a node without left child, go to its right braches.
+
 
 
 
